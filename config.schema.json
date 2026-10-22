@@ -1,0 +1,37 @@
+{
+  "pluginAlias": "RTIInovattive",
+  "pluginType": "platform",
+  "singular": true,
+  "headerDisplay": "Accepts the connection from the **RTI HomeKit Bridge (Inovattive)** driver running on the RTI processor. Accessories are configured in the driver, in Integration Designer. Running as a *child bridge* is recommended (child bridge button on the plugin card).",
+  "footerDisplay": "Inovattive Home — inovattivehome.com.br",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "default": "RTI",
+        "required": true
+      },
+      "port": {
+        "title": "TCP port",
+        "type": "integer",
+        "default": 51888,
+        "minimum": 1025,
+        "maximum": 65535,
+        "description": "The same port set in the RTI driver (default 51888)."
+      },
+      "allowedIp": {
+        "title": "RTI processor IPs (optional)",
+        "type": "string",
+        "description": "If set, only accepts connections from these IPs (comma separated; one driver instance per processor)."
+      },
+      "debug": {
+        "title": "Detailed log",
+        "type": "boolean",
+        "default": false,
+        "description": "Logs every message exchanged with the RTI driver."
+      }
+    }
+  }
+}
