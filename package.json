@@ -1,7 +1,7 @@
 {
   "name": "homebridge-rti-inovattive",
   "displayName": "RTI HomeKit Bridge (Inovattive)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Brings items controlled by an RTI control system into Apple Home (HomeKit), via the Inovattive Home HomeKit Bridge RTI driver.",
   "main": "index.js",
   "license": "MIT",

@@ -30,6 +30,14 @@ accessory, and receives Apple Home commands as driver events that the integrator
 A device should reach Apple Home through one path only: if a device controlled by the RTI processor also has its
 own Homebridge plugin, use either that plugin or this one, never both at the same time.
 
+## Limits
+
+- Each RTI driver instance publishes 1 to 100 accessories (driver setting **Number of accessories**); use more instances
+  for more (up to 8).
+- HomeKit accepts at most **149 accessories per bridge**. All driver instances share this plugin's bridge, so the total of
+  all instances must stay at or below 149; the plugin logs a warning above that. Audio zones are published as separate
+  accessories and do not count toward this limit.
+
 ## Settings
 
 | Setting | Description |

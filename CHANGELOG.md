@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+- Log warning when the bridge goes over 149 accessories (HomeKit limit).
+- README: limits (1 to 100 accessories per RTI driver instance, 149 per bridge).
+
 ## 1.0.2
 - Package metadata: GitHub repository and issue tracker links, `supports-hap` keyword.
 - config.schema.json: required fields declared as an array at the object level (JSON Schema).

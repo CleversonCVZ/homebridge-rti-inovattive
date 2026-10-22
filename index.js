@@ -23,6 +23,7 @@ const PLUGIN_NAME = 'homebridge-rti-inovattive';
 const PLATFORM_NAME = 'RTIInovattive';
 const VERSION = require('./package.json').version;
 const DEFAULT_PORT = 51888;
+const MAX_BRIDGE_ACCESSORIES = 149;
 const IDLE_TIMEOUT_MS = 120000;   // driver sends PING every 30 s; nothing for 2 min = dead connection
 
 const TYPES = {
@@ -246,6 +247,11 @@ class RtiPlatform {
     if (toRegister.length) this.api.registerPlatformAccessories(PLUGIN_NAME, PLATFORM_NAME, toRegister);
     if (gone.length) this.api.unregisterPlatformAccessories(PLUGIN_NAME, PLATFORM_NAME, gone);
     if (changed) this.api.updatePlatformAccessories([...this.cached.values()]);
+    // HomeKit accepts at most 149 accessories behind one bridge (all RTI driver instances share this one)
+    if (this.cached.size > MAX_BRIDGE_ACCESSORIES) {
+      this.log.warn('This bridge now has ' + this.cached.size + ' accessories, above the HomeKit limit of ' + MAX_BRIDGE_ACCESSORIES +
+        ': some may not appear in the Home app. Reduce the accessories sent by the RTI driver instances ("Send to Homebridge").');
+    }
     this.log.info(this.tag(inst) + 'Driver list: ' + list.length + ' accessory(ies)' +
       (toRegister.length ? ', ' + toRegister.length + ' new' : '') +
       (gone.length ? ', ' + gone.length + ' removed' : ''));
