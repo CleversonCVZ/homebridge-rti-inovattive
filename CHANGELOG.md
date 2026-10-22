@@ -1,7 +1,8 @@
 # Changelog
 
 ## 1.0.2
-- Package metadata: GitHub repository and issue tracker links.
+- Package metadata: GitHub repository and issue tracker links, `supports-hap` keyword.
+- config.schema.json: required fields declared as an array at the object level (JSON Schema).
 
 ## 1.0.1
 - README: installation steps (Homebridge UI, child bridge, pairing, RTI driver setup) and Siri / Apple Home notes.

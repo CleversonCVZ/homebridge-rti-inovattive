@@ -21,6 +21,7 @@
   },
   "keywords": [
     "homebridge-plugin",
+    "supports-hap",
     "homebridge",
     "homekit",
     "rti",

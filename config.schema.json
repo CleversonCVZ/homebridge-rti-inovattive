@@ -10,8 +10,7 @@
       "name": {
         "title": "Name",
         "type": "string",
-        "default": "RTI",
-        "required": true
+        "default": "RTI"
       },
       "port": {
         "title": "TCP port",
@@ -32,6 +31,9 @@
         "default": false,
         "description": "Logs every message exchanged with the RTI driver."
       }
-    }
+    },
+    "required": [
+      "name"
+    ]
   }
 }
